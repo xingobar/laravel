@@ -1,0 +1,168 @@
+html,body{
+	/*font-family: Microsoft JhengHei;*/
+	font-family: sans-serif;
+}
+.ui.segment{
+	border:0;
+	box-shadow: none;
+}
+.ui.inverted.segment, .ui.primary.inverted.segment,
+.ui.inverted.menu
+{
+	background-color: #258883;
+}
+.ui.inverted.right.menu,
+.ui.secondary.pointing.menu .item,
+.ui.container,
+.ui.secondary.inverted.pointing.menu{
+	height: 100%;
+	font-size: 18px;
+}
+.ui.inverted.segment.header-nav{
+	box-shadow: 0px 3px 5px #136562;
+	padding-top:0;
+	padding-bottom: 0;
+}
+.ui.inverted.segment.header-nav{
+	height:60px;
+}
+.ui.secondary.pointing.menu .item{
+	margin: 0;
+}
+.ui.secondary.pointing.menu .item.active{
+	border-bottom: none;
+}
+.ui.secondary.inverted.pointing.menu{
+	border:none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.ui.menu a{
+	transition:all 200ms ease !important;
+}
+.ui.inverted.secondary.pointing.menu a:hover{
+	color: white !important;
+	background-color: #5f6f81;
+}
+#content{
+	background-color: transparent;
+	border:none;
+}
+.ui.cards.four.stackable.cards .card{
+	/*transform:perspective(1200px) translateZ(1px) !important;*/
+	transition:all 300ms ease;
+	position: relative;
+	transform:scale(1) ;
+}
+.ui.cards.four.stackable.cards .card:hover{
+	transform:scale(1.05);
+	box-shadow: 0px 0px 10px grey;
+}
+.card .ui.content{
+	padding:0 !important;
+	border-top-width: 0 !important;
+	position: relative;
+	overflow: hidden;
+}
+.ui.content .left .details{
+	width: 70%;
+	clear:right;
+	display: inline-block;
+}
+.left .details  h1{
+	padding-top:10px;
+	padding-left: 10px;
+}
+.left .details  p{
+	padding-bottom: 5px;
+	padding-left: 10px;
+}
+.left .buy{
+	width: 30% !important;
+	float:right;
+	vertical-align: middle;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	line-height: 5;
+	background-color: #eee;
+	border-left: 0.5px solid rgba(192,192,192,0.9);
+	cursor: pointer;
+	transition:all 200ms ease-out;
+}
+.left .buy i{
+	height: 90px;
+	display: flex;
+	align-items: center;
+	font-size: 36px;
+	transition: 200ms ease-out;
+}
+.left .buy:hover{
+	background-color: #8abade ;
+}
+.left .buy:hover i{
+	padding-top:10px;
+}
+.ui.content .right{
+	background-color: #8abade;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left:100%;
+	top:0;
+	transition: all 350ms ease-in-out;
+}
+.right .buy{
+	width: 30% !important;
+	height: 100%;
+	line-height: 5;
+	padding-left:15px;
+	border-right: 1px solid rgba(225,225,225,1);
+	clear:both;
+	display: inline-block;
+	position: relative;
+	transition: all 350ms ease-in-out;
+}
+.right .buy i{
+	font-size: 36px;
+	display: flex;
+	align-items: center;
+	height: 100px;
+	line-height: 5;
+	color: white;
+	cursor: pointer;
+}
+.right .buy .cancel{
+	position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #d24646;;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    left: 0;
+}
+.right .details{
+	width: 70%;
+	float:right;
+	color: white;
+}
+.right .details h1{
+	margin-bottom: 0;
+	padding-top:10px;
+	padding-left:10px;
+}
+.right .details p{
+	padding-bottom: 5px;
+	padding-left: 10px;
+}
+.right .buy .cancel i,
+.right .buy .cancel{
+	transition: all 350ms ease-in-out;
+}
+
+
+

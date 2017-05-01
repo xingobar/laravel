@@ -1,0 +1,42 @@
+.ui.center.aligned.row{
+	padding-left:50px;
+}
+body > .grid {
+  height: 100%;
+}
+.ui.large.form{
+	width: 60%;
+	margin:0 auto;
+}
+.ui.vertical.segment{
+	padding-top:200px;
+}
+.right-segment{
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important; 
+	width: 350px;
+	height: 150px;
+}
+.ui.vertical.buttons{
+	padding-top:45px;
+}
+.ui.vertical.buttons .button.icon{
+	width: 250px;
+	margin-bottom:10px;
+	border-radius:10px;
+}
+.form-wrapper{
+	box-shadow: 0px 3px 5px #b1a8a8 !important;
+}
+/* register css*/
+.ui.form .ui.column.grid{
+	padding-top:15px;
+	padding-bottom: 15px;
+}
+#register_form{
+	padding-top:20px;
+}
+
+/* end register css*/
+

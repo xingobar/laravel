@@ -1,0 +1,116 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,200,300,800);
+
+
+.ui.segment.grid{
+	height: 100%;
+	background-color: #eee;
+	border-top:0;
+	border-bottom: 0;
+	margin-bottom: 0;
+	padding-top:50px;
+}
+.row .ui.two.column.grid .seven.wide.column{
+	padding-right: 0;
+	padding-left: 0;
+}
+figure{
+	font-family: 'Raleway',Arial;
+	/*position: relative;*/
+	margin: 10px 1%;
+	min-width: 200px;
+	max-width:250px;
+	background:#fff;
+	color:#000000;
+}
+figure *{
+	box-sizing: border-box;
+}
+figure .image{
+	background: #eee;
+}
+figure .image img{
+	position: relative;
+	display: block;
+	width: 90%;
+	overflow: hidden;
+	transform: skew(-10deg);
+	-webkit-transform:skewX(-10deg);
+	transform-origin: 50% 100%;
+	z-index: 1;
+}
+figure figcaption{
+	position: absolute;
+	right: 0;
+	/*right: -100%;*/
+	/*width: 100%;*/
+	width: 250px;
+	height: 100%;
+	text-align: right;
+	padding: 20px 30px 20px 20px;	
+	background: #eee;
+}
+figcaption .caption-container{
+	position: relative;
+	height: 100%;
+}
+figcaption .caption-container .icons{
+	position: absolute;
+	bottom:0;
+	transition:all 300ms ease;
+}
+figcaption .caption-container:hover .icons{
+	bottom: 20%;
+}
+figcaption .caption-content{
+	position: relative;
+	transition:all 300ms ease;
+}
+figcaption .caption-container:hover .caption-content{
+	transform:translateY(-15px);
+}
+figure figcaption h2{
+	font-size: 1.3em;
+	font-weight: 100;
+	text-transform: uppercase;
+	border-bottom: 1px solid rgba(0,0,0,0.2);
+	padding:10px 0;
+}
+figure figcaption h2 span{
+	font-weight: 900;
+}
+figure figcaption p {
+	opacity: 0.8;
+	font-size: 0.9em;
+}
+figure figcaption .icons{
+	width: 100%;
+	text-align: right;
+	color: #000000;
+	opacity: 0.3;
+}
+figure figcaption .icons a {
+	color:black;
+}
+figure figcaption .icons a:hover {
+	opacity: 0.8;
+	color: black !important;
+}
+figure figcaption .icons a:hover i{
+	cursor: pointer;
+}
+.position{
+	position: absolute;
+	text-align: right;
+	background-color: red;
+	width: 100%;
+	padding: 15px 30px;
+	opacity: 1;
+	font-style: italic;
+	color: #ffffff;
+	background: #821010;
+	font-size: 0.9em;
+}
+
+
+
+
