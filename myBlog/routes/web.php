@@ -14,3 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/search','HomeController@search');
+Route::resource('post','BlogController');
+Route::resource('type', 'PostTypeController',[
+    'except'=>['index']
+]);
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
