@@ -11,7 +11,7 @@
             <h4>
                 @if(Auth::check())
                     <div class="pull-right">
-                        <a href="#" class="btn btn-info">
+                        <a href="{{route('post.create')}}" class="btn btn-info">
                             <i class="glyphicon glyphicon-plus"></i>
                             <span>新增文章</span>
                         </a>
@@ -62,7 +62,7 @@
                                     @if(Auth::check())
                                         <form method="post" action="{{route ('post.destroy',['post'=>$post->id])}}">
                                             <span style="padding-left:10px">
-                                                <a href="#" class="btn btn-default">
+                                                <a href="{{route('post.edit',['post'=>$post->id])}}" class="btn btn-default">
                                                     <i class="glyphicon glyphicon-pencil"></i>
                                                     <span style="padding-left:5px;">編輯文章</span>
                                                 </a>

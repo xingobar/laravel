@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Repository\PostRepository;
 use App\Post;
-use App\Requests\PostRequests;
+use App\Http\Requests\PostRequest;
 
 class BlogController extends Controller
 {
@@ -46,12 +46,20 @@ class BlogController extends Controller
         ]);
     }
 
-    public function edit(){
-
+    public function edit($id){
+        $post = $this->postRepository->getSpecifiedPost($id);
+        $postTypes = $this->postRepository->getPostsTypesWithOrderByNameASC();
+        return view('post.edit',[
+            'post'=>$post,
+            'post_types'=>$postTypes
+        ]);
     }
 
-    public function update(){
-        
+    public function update(PostRequest $request,$id){
+        $post = $this->postRepository->getSpecifiedPost($id);
+        $post->fill($request->all());
+        $post->save();
+        return redirect()->route('post.index');
     }
 
     public function destroy(){
