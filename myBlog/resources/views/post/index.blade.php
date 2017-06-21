@@ -16,8 +16,36 @@
                             <span>新增文章</span>
                         </a>
                     </div>
-                    @if(isset($keyword))
+                    <!--@if(isset($keyword))
                         搜尋 ： {{$keyword}}
+                    @else
+                        所有文章
+                    @endif-->
+                @endif
+
+                ＠if(isset($type))
+                    分類 : {{$type->type}}
+                    @if(Auth::check())
+                        <div class="pull-right">
+                            <form method="post" action="{{route ('type.destroy',['type'=>$type->id])}}">
+                                <span>
+                                    {{csrf_field()}}
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <button type="submit" class="btn btn-danger">
+                                        <i class="glyphicon glyphicon-trash"></i>
+                                        <span>刪除分類</span>
+                                    </button>
+                                </span>
+                            </form>
+                        </div>
+                        <div class="pull-right">
+                            <a href="{{route ('type.edit',['type'=> $type->id])}}" class="btn btn-primary">
+                                <i class="glyphicon glyphicon-pencil"></i>
+                                <span>編輯文章</span>
+                            </a>
+                        </div>
+                    @elseif(isset($keyword))
+                        搜尋:{{$keyword}}
                     @else
                         所有文章
                     @endif
@@ -84,6 +112,20 @@
                     </div>
                 </div>
             @endforeach
+        </div>
+        <div class="col-md-4">
+            <div class="list-group">
+                <a href="{{route('post.index')}}" class="list-group-item 
+                    {{isset($type) ? '' : 'active'}}">全部分類</a>
+                @foreach($post_types as $post_type)
+                    <a href="{{route('type.show',['type'=>$post_type->id])}}" class="list-group-item
+                        {{isset($type) ? (($type->id === $post_type->id ) ? 'active':''):''}}">
+                    </a>
+                @endforeach
+                @if(Auth::check())
+                    <a href="{{route('type.create')}}" class="list-group-item">建立新分類</a>
+                @endif
+            </div>
         </div>
     </div>
     <div class="row">

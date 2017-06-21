@@ -28,6 +28,19 @@ class PostRepository
         $post = Post::findOrFail($id);
         return $post;
     }
+
+    public function getSpecifiedPostType($type_id){
+        $post_type = PostType::findOrFail($type_id);
+        return $post_type;
+    }
+
+    public function getSpecifiedPostWithType($type_id){
+        $posts = Post::where('type','=',$type_id)->orderBy('created_at','desc')->paginate();
+        return $posts;
+    }
+
+    
+
 }
 
 ?>
