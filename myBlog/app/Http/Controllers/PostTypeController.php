@@ -3,22 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Repositories\PostRepository;
 use App\Http\Requests\PostTypeRequest;
+use App\Repository\PostRepository;
 use App\PostsTypes;
 
 class PostTypeController extends Controller
 {
     private $postRepository;
 
-    public function __construct($postRepository){
+    public function __construct(){
         $this->middleware('auth',['except'=>[
             'show'
         ]]);
-        $this->postRepository = $postRepository;
     }
 
     public function show($type_id){
+        $this->postRepository = new PostRepository();
         $type = $this->postRepository->getSpecifiedPostType($type_id);
         $posts = $this->postRepository->getSpecifiedPostWithType($type_id);
         $postTypes = $this->postRepository->getPostsTypesWithOrderByNameASC();
@@ -30,6 +30,7 @@ class PostTypeController extends Controller
     }
 
     public function create(){
+        $this->postRepository = new PostRepository();
         return view('posttype.create');
     }
 
@@ -39,11 +40,13 @@ class PostTypeController extends Controller
     }
 
     public function edit($id){
-        $post_type = $this->postRepository->getSpecifiedPostType();
+        $this->postRepository = new PostRepository();
+        $post_type = $this->postRepository->getSpecifiedPostType($id);
         return view('posttype.edit',['post_type'=>$post_type]);
     }
 
     public function update(PostTypeRequest $request,$id){
+        $this->postRepository = new PostRepository();
         $post_type = $this->postRepository->getSpecifiedPostType($id);
         $post_type->fill($request->only('type'));
         $post_type->save();
@@ -51,6 +54,7 @@ class PostTypeController extends Controller
     }
 
     public function destroy($id){
+        $this->postRepository = new PostRepository();
         $post_type = $this->postRepository->getSpecifiedPostType($id);
         $post_type->post()->delete();
         $post_type->delete();

@@ -30,7 +30,7 @@ class PostRepository
     }
 
     public function getSpecifiedPostType($type_id){
-        $post_type = PostType::findOrFail($type_id);
+        $post_type = PostsTypes::findOrFail($type_id);
         return $post_type;
     }
 

@@ -22,34 +22,34 @@
                         所有文章
                     @endif-->
                 @endif
-
-                ＠if(isset($type))
-                    分類 : {{$type->type}}
+                @if(isset($type))
+                    分類:{{$type->type}}
                     @if(Auth::check())
                         <div class="pull-right">
-                            <form method="post" action="{{route ('type.destroy',['type'=>$type->id])}}">
+                            <form method="post" action="{{route('type.destroy',['type'=>$type->id])}}">
                                 <span>
-                                    {{csrf_field()}}
-                                    <input type="hidden" name="_method" value="DELETE">
-                                    <button type="submit" class="btn btn-danger">
-                                        <i class="glyphicon glyphicon-trash"></i>
-                                        <span>刪除分類</span>
-                                    </button>
+                                  {{csrf_field()}}
+                                  <input type="hidden" name="_method" value="DELETE">
+                                  <button type="submit" class="btn btn-danger">
+                                    <i class="glyphicon glyphicon-trash"></i>
+                                    <span>刪除分類</span>
+                                  </button>
                                 </span>
                             </form>
                         </div>
                         <div class="pull-right">
-                            <a href="{{route ('type.edit',['type'=> $type->id])}}" class="btn btn-primary">
+                            <a href="{{route('type.edit',['type'=>$type->id])}}" class="btn btn-primary">
                                 <i class="glyphicon glyphicon-pencil"></i>
-                                <span>編輯文章</span>
+                                <span>編輯</span>
                             </a>
                         </div>
-                    @elseif(isset($keyword))
-                        搜尋:{{$keyword}}
-                    @else
-                        所有文章
                     @endif
+                @elseif(isset($keyword))
+                 搜尋：{{$keyword}}
+                @else
+                    所有文章
                 @endif
+
             </h4>
             <hr/>
             @if(count($posts) == 0)
@@ -120,6 +120,7 @@
                 @foreach($post_types as $post_type)
                     <a href="{{route('type.show',['type'=>$post_type->id])}}" class="list-group-item
                         {{isset($type) ? (($type->id === $post_type->id ) ? 'active':''):''}}">
+                        {{$post_type->type}}
                     </a>
                 @endforeach
                 @if(Auth::check())
