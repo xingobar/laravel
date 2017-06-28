@@ -20,6 +20,7 @@ Route::resource('post','BlogController');
 Route::resource('type', 'PostTypeController',[
     'except'=>['index']
 ]);
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

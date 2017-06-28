@@ -28,7 +28,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return redirect()->action('PostController@index');
+        return redirect()->action('BlogController@index');
     }
 
     /**
