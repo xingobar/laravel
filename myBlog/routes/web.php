@@ -20,6 +20,23 @@ Route::resource('post','BlogController');
 Route::resource('type', 'PostTypeController',[
     'except'=>['index']
 ]);
+Route::resource('post.comment','PostCommentController',[
+    'only' => ['store','destroy']
+]);
+
+Route::group(['prefix' => 'login/social'
+            ,'middleware' => ['guest']],function(){
+
+                Route::get('{provider}/redirect',[
+                    'as' => 'social.redirect',
+                    'uses' => 'Auth\SocialController@getSocialRedirect'
+                ]);
+
+                Route::get('{provider}/callback',[
+                    'as' => 'social.handle',
+                    'uses'=> 'Auth\SocialController@getSocialCallback'
+                ]); 
+            });
 
 Auth::routes();
 

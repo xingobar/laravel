@@ -12,7 +12,7 @@ class BlogController extends Controller
     private $postRepository;
 
     public function __construct(PostRepository $postRepository){
-        $this->middleware('auth',[
+        $this->middleware(['auth','admin'],[
             'except'=>['index','show'],
         ]);
         $this->postRepository = $postRepository;
@@ -41,8 +41,10 @@ class BlogController extends Controller
 
     public function show($id){
         $post = $this->postRepository->getSpecifiedPost($id);
+        $comments = $this->postRepository->getSpecifiedComment($post->id);
         return view('post.show',[
             'post'=>$post,
+            'comments'=>$comments
         ]);
     }
 

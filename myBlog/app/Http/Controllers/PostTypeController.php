@@ -12,7 +12,7 @@ class PostTypeController extends Controller
     private $postRepository;
 
     public function __construct(){
-        $this->middleware('auth',['except'=>[
+        $this->middleware(['auth','admin'],['except'=>[
             'show'
         ]]);
     }

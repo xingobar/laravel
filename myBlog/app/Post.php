@@ -21,4 +21,8 @@ class Post extends Model
     public function types(){
         return $this->hasOne(PostsTypes::class,'id','type');
     }
+
+    public function comments(){
+        return $this->hasMany(Comment::class,'post_id','id');
+    }
 }

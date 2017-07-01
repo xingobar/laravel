@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Post;
 use App\User;
 use App\PostsTypes;
+use App\Comment;
 use Log;
 
 class PostRepository
@@ -39,6 +40,12 @@ class PostRepository
         return $posts;
     }
 
+    public function getSpecifiedComment($post_id){
+        $comments = Comment::where('post_id','=',$post_id)
+                    ->orderBy('created_at','desc')
+                    ->paginate(5);
+        return $comments;
+    }
     
 
 }
