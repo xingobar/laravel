@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Redirect;
 use App\Repository\PostRepository;
 
+
 class HomeController extends Controller
 {
     private $postRepository;
@@ -36,17 +37,17 @@ class HomeController extends Controller
     *
     * 
     */
-    public function search()
+    public function search(Request $request)
     {
         if(!$request->has('keyword')){
             return redirect()->back()->withErrors("do not input keyword");
         }
         $keyword  = $request->input('keyword');
-        $posts = $this->postRepositor->getPostsByKeyword($keyword);
+        $posts = $this->postRepository->getPostsByKeyword($keyword);
         $postsTypes = $this->postRepository->getPostsTypesWithOrderByNameASC();
         return view('post.index', [
             'posts' =>$posts,
-            'posts_types'=>$postsTypes,
+            'post_types'=>$postsTypes,
             'keyword'=>$keyword
         ]);
     }

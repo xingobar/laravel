@@ -24,6 +24,13 @@ Route::resource('post.comment','PostCommentController',[
     'only' => ['store','destroy']
 ]);
 
+Route::group(['prefix' => 'user',
+            'middleware'=>['auth']],function(){
+
+                Route::get('avatar','UserController@getAvatar');
+                Route::post('avatar','UserController@postAvatar');
+            });
+
 Route::group(['prefix' => 'login/social'
             ,'middleware' => ['guest']],function(){
 

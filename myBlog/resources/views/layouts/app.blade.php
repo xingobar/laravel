@@ -28,9 +28,16 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
+                    <a class="navbar-brand" href="{{ url('/post') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
+
+                    <form class="navbar-form navbar-left" role="search" method="get" action="{{action('HomeController@search')}}">
+                        <div class="form-group">
+                            <input type="text" name="keyword" placeholder="Search Post..." class="form-control">
+                            <button type="submit" class="btn btn-primary" >搜尋</button>
+                        </div>
+                    </form>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -50,7 +57,11 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
-
+                                <li>
+                                 <a href="{{action('UserController@getAvatar')}}">
+                                   <img src="{{Auth::user()->getAvatarUrl()}}" style="width:30px;height:30px;" class="img-circle" alt="">
+                                 </a>
+                                </li>
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
                                         <a href="{{ route('logout') }}"
