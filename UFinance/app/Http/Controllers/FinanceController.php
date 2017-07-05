@@ -28,7 +28,7 @@ class FinanceController extends Controller
         $transaction = new Transaction();
         $request->user()->transanction()->save($transaction);
         for($index = 0 ; $index < $total ; $index++){
-            if(empty($types[$index]) || empty($accouns[$index]) || empty($amounts[$index])){
+            if(empty($types[$index]) || empty($accounts[$index]) || empty($amounts[$index])){
                 continue;
             }
             $type = new AccountType([

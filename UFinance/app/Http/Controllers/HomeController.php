@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Finance;
+use App\Transaction;
+use Log;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -24,7 +26,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $finance = Finance::orderBy('created_at','desc')->paginate(10);
+        $transaction = Transaction::orderBy('created_at','desc')
+                        ->where('user_id',Auth::user()->id)
+                        ->paginate(5);
         return view('home');
     }
 }
