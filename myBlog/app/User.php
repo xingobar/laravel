@@ -37,7 +37,8 @@ class User extends Authenticatable
 
     public function getAvatarUrl(){
         if(empty($this->avatar)){
-            return URL::asset('img/avatar/default.png');
+            return null;
+            //return URL::asset('img/avatar/default.png');
         }else{
             if(!preg_match('/^[a-zA-Z]+:\/\//',$this->avatar)){
                 return URL::asset($this->avatar);
