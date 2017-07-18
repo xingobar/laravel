@@ -22,7 +22,6 @@ class SocialController extends Controller
             return App::abort(404);
         }
         return Socialite::driver($provider)->redirect();
-
     }
 
     public function getSocialCallback($provider,Request $request){
@@ -30,7 +29,7 @@ class SocialController extends Controller
             return redirect()->route('login')
                     ->withErrors(['msg'=>$provider . '登入失敗']);
         }
-        $socialite_user = Socialite::with($provider)->user();
+        $socialite_user = Socialite::with($provider)->stateless()->user();
         $login_user = null;
         $user = User::where('email','=',$socialite_user->email)
                 ->where('provider','=',$provider)->first();

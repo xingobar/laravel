@@ -37,7 +37,7 @@ class PixcanvaController extends Controller
         
         if($request->file('image') !=null)
         {
-            $path = '/public/uploads/' . $request->user()->name;
+            $path = '/public/uploads';
             $filepath = $path . '/' . (string)($request->file('image'));
             $filename = strtolower($request->file('image')->getClientOriginalName());
             $extension = strtolower($request->file('image')->getClientOriginalExtension());
